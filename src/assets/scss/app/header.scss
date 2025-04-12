@@ -2,33 +2,31 @@
 
 .header {
   padding: 45px 0;
-  border: 1px solid #eaeaea;
+  border: var(--border);
 
   &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex-between-center;
+    gap: 10px;
   }
 
   &__logo {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  &__image {
-    max-width: 40px;
+    max-width: 245px;
     width: 100%;
   }
 
-  &__box {
-    // @include flex-column;
+  &__list {
+    @include flex;
+    gap: 32px;
   }
 
-  &__list {
-    // display: flex;
-    // align-items: center;
-    gap: 32px;
-    background-color: var(--green);
+  &__item {
+    @include flex;
+    gap: 8px;
+  }
+
+  &__link {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--graphite);
   }
 }

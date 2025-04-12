@@ -31,6 +31,7 @@ const RAW_RUNTIME_STATE =
           ["@vue/tsconfig", "virtual:f2984d762998453d1668ef90dd207084e126f98ea6cd2d4c1536a5decf587abc7e050d4b7f910183a10c879f1dac1380c19c0dd1f32b07f4c50a4f28b96e8ba1#npm:0.7.0"],\
           ["sass-embedded", "npm:1.86.3"],\
           ["sneakers-vue", "workspace:."],\
+          ["swiper", "npm:11.2.6"],\
           ["typescript", "patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=5786d5"],\
           ["vite", "virtual:f2984d762998453d1668ef90dd207084e126f98ea6cd2d4c1536a5decf587abc7e050d4b7f910183a10c879f1dac1380c19c0dd1f32b07f4c50a4f28b96e8ba1#npm:6.2.5"],\
           ["vue", "virtual:f2984d762998453d1668ef90dd207084e126f98ea6cd2d4c1536a5decf587abc7e050d4b7f910183a10c879f1dac1380c19c0dd1f32b07f4c50a4f28b96e8ba1#npm:3.5.13"],\
@@ -1985,6 +1986,7 @@ const RAW_RUNTIME_STATE =
           ["@vue/tsconfig", "virtual:f2984d762998453d1668ef90dd207084e126f98ea6cd2d4c1536a5decf587abc7e050d4b7f910183a10c879f1dac1380c19c0dd1f32b07f4c50a4f28b96e8ba1#npm:0.7.0"],\
           ["sass-embedded", "npm:1.86.3"],\
           ["sneakers-vue", "workspace:."],\
+          ["swiper", "npm:11.2.6"],\
           ["typescript", "patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=5786d5"],\
           ["vite", "virtual:f2984d762998453d1668ef90dd207084e126f98ea6cd2d4c1536a5decf587abc7e050d4b7f910183a10c879f1dac1380c19c0dd1f32b07f4c50a4f28b96e8ba1#npm:6.2.5"],\
           ["vue", "virtual:f2984d762998453d1668ef90dd207084e126f98ea6cd2d4c1536a5decf587abc7e050d4b7f910183a10c879f1dac1380c19c0dd1f32b07f4c50a4f28b96e8ba1#npm:3.5.13"],\
@@ -2091,6 +2093,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["has-flag", "npm:4.0.0"],\
           ["supports-color", "npm:8.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["swiper", [\
+      ["npm:11.2.6", {\
+        "packageLocation": "../../AppData/Local/Yarn/Berry/cache/swiper-npm-11.2.6-856f73dc16-10c0.zip/node_modules/swiper/",\
+        "packageDependencies": [\
+          ["swiper", "npm:11.2.6"]\
         ],\
         "linkType": "HARD"\
       }]\

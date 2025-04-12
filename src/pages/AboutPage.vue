@@ -1,6 +1,5 @@
 <template>
-  <!-- <Header />
+  <Header />
   <Prodcut />
-  <Footer /> -->
-  about page
+  <Footer />
 </template>

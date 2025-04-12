@@ -1753,6 +1753,7 @@ __metadata:
     "@vitejs/plugin-vue": "npm:^5.2.1"
     "@vue/tsconfig": "npm:^0.7.0"
     sass-embedded: "npm:^1.86.3"
+    swiper: "npm:^11.2.6"
     typescript: "npm:~5.7.2"
     vite: "npm:^6.2.0"
     vue: "npm:^3.5.13"
@@ -1851,6 +1852,13 @@ __metadata:
   dependencies:
     has-flag: "npm:^4.0.0"
   checksum: 10c0/ea1d3c275dd604c974670f63943ed9bd83623edc102430c05adb8efc56ba492746b6e95386e7831b872ec3807fd89dd8eb43f735195f37b5ec343e4234cc7e89
+  languageName: node
+  linkType: hard
+
+"swiper@npm:^11.2.6":
+  version: 11.2.6
+  resolution: "swiper@npm:11.2.6"
+  checksum: 10c0/36ba63e2d1c5045f647f0f07b3a25c164393fb89b17db63f57fa9f776eb61bc5cb2c34634f80cf69caaddc209a174d0cd7be23c580785534569ea4a098b3a42c
   languageName: node
   linkType: hard
 

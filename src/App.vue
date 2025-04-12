@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
-import Link from "./components/app/Link.vue";
-import AppHeader from "./components/app/Header.vue";
+import Header from "./components/Header.vue";
+import Slider from "./components/Slider.vue";
 </script>
 
 <template>
-  <!-- <AppHeader /> -->
+  <Header />
+  <Slider />
   <RouterView />
 </template>
 
