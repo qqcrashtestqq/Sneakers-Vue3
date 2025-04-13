@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Autoplay } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/bundle";
 import "swiper/css/autoplay";
@@ -48,28 +48,24 @@ const breakpoints = {
     slidesPerView: 1,
     spaceBetween: 50,
   },
-  992: {
-    slidesPerView: 1,
-    spaceBetween: 50,
-  },
 
   768: {
-    slidesPerView: 3,
     spaceBetween: 15,
   },
 };
 </script>
-
 <template>
   <div class="slider">
     <div class="container slider__container">
       <swiper
-        :modules="[Autoplay]"
-        :navigation="true"
+        :modules="[Navigation, Autoplay]"
+        :navigation="{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }"
         :pagination="{ clickable: true }"
         :space-between="50"
         :loop="true"
-        :navigator="false"
         :autoplay="{ delay: 5000, disableOnInteraction: false }"
         :speed="1500"
         :breakpoints="breakpoints"
@@ -81,25 +77,31 @@ const breakpoints = {
           class="slider__slide"
         >
           <div class="slider__bg">
-            <img :src="item.image" alt="" />
+            <img :src="item.image" alt=" phote for background" />
           </div>
           <div class="slider__content">
             <div class="slider__decor">
-              <img :src="item.decor" alt="" />
+              <img :src="item.decor" alt="decor element" />
             </div>
             <div class="slider__box">
               <div class="slider__title">
                 {{ item.title }}
               </div>
-              <!-- <AppLink class="slider__btn">{{ item.button }}</AppLink> -->
+              <AppLink
+                :isVisabiletyIcon="false"
+                :text="item.button"
+                class="slider__button"
+              />
             </div>
           </div>
         </swiper-slide>
+
+        <!-- 👇 Навигационные стрелки -->
         <div class="swiper-button-prev">
-          <Icon name="IconSliderArrow" size="35" />
+          <Icon name="IconSliderArrowLeft" size="35" />
         </div>
         <div class="swiper-button-next">
-          <Icon name="IconSliderArrow" size="35" />
+          <Icon name="IconSliderArrowRight" size="35" />
         </div>
       </swiper>
     </div>

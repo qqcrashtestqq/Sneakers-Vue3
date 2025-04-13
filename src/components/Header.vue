@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import IconBasket from "./icons/IconBasket.vue";
+
 interface ListItems {
   name: string | number;
   icon: string;
@@ -8,7 +10,7 @@ interface ListItems {
 const listItems: ListItems[] = [
   {
     name: 0,
-    icon: "IconBasket",
+    icon: IconBasket,
     link: "/basket",
   },
   {
@@ -27,9 +29,9 @@ const listItems: ListItems[] = [
 <template>
   <header class="header">
     <div class="container header__container">
-      <RouteerLink href="/" class="header__logo">
+      <RouterLink href="/" class="header__logo">
         <img src="/images/logo.png" alt="logo" />
-      </RouteerLink>
+      </RouterLink>
       <nav class="header__nav">
         <ul class="header__list">
           <li
@@ -38,7 +40,7 @@ const listItems: ListItems[] = [
             class="header__item"
           >
             <RouterLink :to="item.link" class="header__link">
-              <Icon :name="item.icon" size="20" />
+              {{ item.icon }}
               {{ item.name }}
             </RouterLink>
           </li>

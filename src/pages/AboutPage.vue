@@ -1,5 +1,1 @@
-<template>
-  <Header />
-  <Prodcut />
-  <Footer />
-</template>
+<template>this is about page</template>

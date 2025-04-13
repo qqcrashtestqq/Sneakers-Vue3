@@ -1,8 +1,7 @@
 @use "@/assets/scss/general/flex" as *;
 
 .slider {
-  padding: 120px 0;
-  // cursor: pointer;
+  // padding: 120px 0;
 
   &__swiper {
     // @include flex-between-center;
@@ -24,6 +23,7 @@
     bottom: 0;
     border-radius: 20px;
     overflow: hidden;
+
     img {
       object-fit: fill;
     }
@@ -53,12 +53,15 @@
     font-size: 38px;
     color: var(--green);
   }
+
+  &__button {
+    width: fit-content;
+  }
 }
 
 @media (max-width: 992px) {
   .slider {
     &__swiper {
-      margin: 0 -15px;
     }
 
     &__slide {
@@ -67,6 +70,10 @@
 
     &__bg {
       border-radius: unset;
+    }
+
+    &__decor {
+      // margin-bottom: 10px;
     }
 
     &__box {

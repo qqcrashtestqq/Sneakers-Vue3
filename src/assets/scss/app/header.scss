@@ -12,6 +12,7 @@
   &__logo {
     max-width: 245px;
     width: 100%;
+    flex-shrink: 0;
   }
 
   &__list {

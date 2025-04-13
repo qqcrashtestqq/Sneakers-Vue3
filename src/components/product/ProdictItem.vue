@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { reactive } from "vue";
+import AppButton from "../app/Button.vue";
 
 interface ItemProducts {
   id?: number;
@@ -9,99 +10,75 @@ interface ItemProducts {
   value: number;
 }
 
-const items = reactive<ItemProducts>([
+const items = reactive<ItemProducts[]>([
   {
-    image: "",
+    image: "/images/product/1.jpg",
     title: "Nike Blazer Mid Suede",
     text: "Цена:",
     value: 50.99,
   },
   {
-    image: "",
+    image: "/images/product/2.jpg",
     title: "Nike Blazer Mid Suede",
     text: "Цена:",
     value: 50.99,
   },
   {
-    image: "",
+    image: "/images/product/3.jpg",
     title: "Nike Blazer Mid Suede",
     text: "Цена:",
     value: 50.99,
   },
   {
-    image: "",
+    image: "/images/product/4.jpg",
     title: "Nike Blazer Mid Suede",
     text: "Цена:",
     value: 50.99,
   },
   {
-    image: "",
+    image: "/images/product/5.jpg",
     title: "Nike Blazer Mid Suede",
     text: "Цена:",
     value: 50.99,
   },
   {
-    image: "",
+    image: "/images/product/6.jpg",
     title: "Nike Blazer Mid Suede",
     text: "Цена:",
     value: 50.99,
   },
   {
-    image: "",
+    image: "/images/product/7.jpg",
     title: "Nike Blazer Mid Suede",
     text: "Цена:",
     value: 50.99,
   },
   {
-    image: "",
+    image: "/images/product/8.jpg",
     title: "Nike Blazer Mid Suede",
     text: "Цена:",
     value: 50.99,
   },
   {
-    image: "",
+    image: "/images/product/9.jpg",
     title: "Nike Blazer Mid Suede",
     text: "Цена:",
     value: 50.99,
   },
   {
-    image: "",
+    image: "/images/product/10.jpg",
     title: "Nike Blazer Mid Suede",
     text: "Цена:",
     value: 50.99,
   },
   {
-    image: "",
+    image: "/images/product/11.jpg",
     title: "Nike Blazer Mid Suede",
     text: "Цена:",
     value: 50.99,
   },
   {
-    image: "",
-    title: "Nike Blazer Mid Suede",
-    text: "Цена:",
-    value: 50.99,
-  },
-  {
-    image: "",
-    title: "Nike Blazer Mid Suede",
-    text: "Цена:",
-    value: 50.99,
-  },
-  {
-    image: "",
-    title: "Nike Blazer Mid Suede",
-    text: "Цена:",
-    value: 50.99,
-  },
-  {
-    image: "",
-    title: "Nike Blazer Mid Suede",
-    text: "Цена:",
-    value: 50.99,
-  },
-  {
-    image: "",
+    image: "/images/product/12.jpg",
     title: "Nike Blazer Mid Suede",
     text: "Цена:",
     value: 50.99,
@@ -110,11 +87,11 @@ const items = reactive<ItemProducts>([
 </script>
 
 <template>
-  <li v-for="(item in index) in items" :key="index" class="product__item">
+  <li v-for="(item, index) in items" :key="index" class="product__item">
     <div class="product__image">
-      <img :src="item.image" alt="" />
+      <img :src="item.image" alt="photo product" />
     </div>
-    <div class="product__name">Мужские Кроссовки{{ item.title }}</div>
+    <a href="" class="product__name">Мужские Кроссовки{{ item.title }}</a>
     <div class="product__info">
       <div class="product__price">
         <span class="product__price-text">{{ item.text }}</span>
@@ -124,3 +101,7 @@ const items = reactive<ItemProducts>([
     </div>
   </li>
 </template>
+
+<style lang="scss" scoped>
+@use "@/assets/scss/product/product.scss";
+</style>

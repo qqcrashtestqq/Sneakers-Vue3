@@ -1,15 +1,23 @@
 <script lang="ts" setup>
 import ProductList from "./ProdictList.vue";
+import Slider from "../Slider.vue";
 </script>
 
 <template>
   <section class="product">
     <div class="container product__container">
-      <div class="product__head">
-        <h1 class="product__title">Все кроссовки</h1>
-        <!-- TODO input -->
+      <Slider />
+      <div class="product__content">
+        <div class="product__head">
+          <h1 class="product__title">Все кроссовки</h1>
+          <!-- TODO input -->
+        </div>
+        <ProductList />
       </div>
-      <ProductList />
     </div>
   </section>
 </template>
+
+<style lang="scss" scoped>
+@use "@/assets/scss/product/product.scss";
+</style>
