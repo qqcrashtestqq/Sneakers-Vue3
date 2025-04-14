@@ -1,9 +1,11 @@
 <script lang="ts" setup>
+import type { Component } from "vue";
 import IconBasket from "./icons/IconBasket.vue";
-
+import IconLike from "./icons/IconLike.vue";
+import IconProfile from "./icons/IconProfile.vue";
 interface ListItems {
   name: string | number;
-  icon: string;
+  icon: Component;
   link: string;
 }
 
@@ -15,12 +17,12 @@ const listItems: ListItems[] = [
   },
   {
     name: "Закладки",
-    icon: "IconLike",
+    icon: IconLike,
     link: "/like",
   },
   {
     name: "Профиль",
-    icon: "IconProfile",
+    icon: IconProfile,
     link: "/profile",
   },
 ];
@@ -29,7 +31,7 @@ const listItems: ListItems[] = [
 <template>
   <header class="header">
     <div class="container header__container">
-      <RouterLink href="/" class="header__logo">
+      <RouterLink to="/" class="header__logo">
         <img src="/images/logo.png" alt="logo" />
       </RouterLink>
       <nav class="header__nav">
@@ -40,7 +42,7 @@ const listItems: ListItems[] = [
             class="header__item"
           >
             <RouterLink :to="item.link" class="header__link">
-              {{ item.icon }}
+              <component :is="item.icon" />
               {{ item.name }}
             </RouterLink>
           </li>

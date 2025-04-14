@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 defineProps({
   text: String,
-  icon: "IconArrow",
+  icon: String,
   link: String,
   isVisabilety: Boolean,
 });
