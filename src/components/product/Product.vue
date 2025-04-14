@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import ProductList from "./ProdictList.vue";
 import Slider from "../Slider.vue";
+import ProductItem from "./ProdictItem.vue";
 </script>
 
 <template>
@@ -12,7 +12,9 @@ import Slider from "../Slider.vue";
           <h1 class="product__title">Все кроссовки</h1>
           <!-- TODO input -->
         </div>
-        <ProductList />
+        <ul class="product__list">
+          <ProductItem />
+        </ul>
       </div>
     </div>
   </section>

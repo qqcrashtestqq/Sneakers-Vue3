@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import { ref } from "vue";
+import IconCheckMark from "../icons/IconCheckMark.vue";
+import IconPlus from "../icons/IconPlus.vue";
 
-const statusButton = ref(false);
+const statusButton = ref<boolean>(false);
 
 function clickButton() {
   statusButton.value = !statusButton.value;
@@ -9,13 +11,13 @@ function clickButton() {
 </script>
 
 <template>
-  <!-- button--active active class -->
   <button
     :class="{ 'button--active': statusButton }"
     class="button"
     @click="clickButton"
   >
-    <Icon name="IconCheckMark" size="10" />
+    <component v-if="statusButton === false" :is="IconPlus" />
+    <component v-if="statusButton === true" :is="IconCheckMark" />
   </button>
 </template>
 
