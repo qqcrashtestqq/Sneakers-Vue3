@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { reactive } from "vue";
 import AppButton from "../app/Button.vue";
+import AppLike from "../app/Like.vue";
 
 interface ItemProducts {
   id?: number;
@@ -88,6 +89,7 @@ const items = reactive<ItemProducts[]>([
 
 <template>
   <li v-for="(item, index) in items" :key="index" class="product__item">
+    <AppLike />
     <div class="product__image">
       <img :src="item.image" alt="photo product" />
     </div>

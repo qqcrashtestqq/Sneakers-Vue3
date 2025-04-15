@@ -1,0 +1,21 @@
+@use "@/assets/scss/general/flex" as *;
+
+.like {
+  @include flex-all-center;
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  border: var(--border);
+
+  &__icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  &--active {
+    border-color: transparent;
+    .like__icon {
+      color: var(--red);
+    }
+  }
+}
