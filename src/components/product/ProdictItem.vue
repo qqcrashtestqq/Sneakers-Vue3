@@ -89,7 +89,7 @@ const items = reactive<ItemProducts[]>([
 
 <template>
   <li v-for="(item, index) in items" :key="index" class="product__item">
-    <AppLike />
+    <AppLike class="product__like" />
     <div class="product__image">
       <img :src="item.image" alt="photo product" />
     </div>

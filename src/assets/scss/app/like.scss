@@ -2,19 +2,27 @@
 
 .like {
   @include flex-all-center;
+
   width: 32px;
   height: 32px;
-  border-radius: 7px;
-  border: var(--border);
 
-  &__icon {
+  border: var(--border);
+  border-radius: 8px;
+
+  transition: var(--ease);
+
+  svg {
     width: 14px;
     height: 14px;
+    color: var(--grey);
   }
 
   &--active {
-    border-color: transparent;
-    .like__icon {
+    border: none;
+    background-color: var(--light-red);
+
+    svg {
+      fill: var(--red);
       color: var(--red);
     }
   }
