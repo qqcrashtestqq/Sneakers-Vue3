@@ -23,7 +23,7 @@ const listItems: ListItems[] = [
   {
     name: "Вход",
     icon: IconProfile,
-    link: "/profile",
+    link: "/authorization",
   },
 ];
 </script>

@@ -1,0 +1,60 @@
+@use "@/assets/scss/general/flex" as *;
+
+.authorization {
+  @include flex-all-center;
+  padding: 200px 0;
+
+  &__inner {
+    width: 400px;
+    padding: 15px;
+    transition: var(--ease);
+    border-radius: var(--radius);
+    border: var(--border);
+
+    &:hover {
+      border-color: transparent;
+      box-shadow: var(--shadow);
+    }
+  }
+
+  &__tabs {
+    @include flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 25px;
+  }
+
+  &__tab {
+    padding: 10px;
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 14px;
+    border-radius: var(--radius);
+    transition: var(--ease);
+
+    // &:hover {
+    //   color: var(--white);
+    //   background-color: var(--graphite);
+    // }
+
+    &--active {
+      color: var(--white);
+      background-color: var(--green);
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 5px;
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: var(--radius);
+    color: var(--white);
+    background-color: var(--green);
+  }
+
+  &__input {
+  }
+}

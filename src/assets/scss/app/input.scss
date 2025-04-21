@@ -1,0 +1,32 @@
+.input {
+  display: block;
+  &__input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    transition: var(--ease);
+    border-radius: 10px;
+    border: 1px solid #f3f3f3;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      border-color: var(--green);
+    }
+  }
+  &__label {
+    font-family: "Inter";
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--red);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
