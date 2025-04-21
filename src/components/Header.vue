@@ -3,17 +3,17 @@ import type { Component } from "vue";
 import IconBasket from "./icons/IconBasket.vue";
 import IconLike from "./icons/IconLike.vue";
 import IconProfile from "./icons/IconProfile.vue";
+
 interface ListItems {
   name: string | number;
   icon: Component;
-  link: string;
+  link?: string;
 }
 
 const listItems: ListItems[] = [
   {
     name: 0,
     icon: IconBasket,
-    link: "/basket",
   },
   {
     name: "Закладки",
@@ -21,7 +21,7 @@ const listItems: ListItems[] = [
     link: "/like",
   },
   {
-    name: "Профиль",
+    name: "Вход",
     icon: IconProfile,
     link: "/profile",
   },
