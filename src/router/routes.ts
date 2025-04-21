@@ -6,7 +6,7 @@ export default [
   { path: "/", name: "home", component: HomePage },
   { path: "/about", name: "about", component: AboutPage },
   {
-    path: "/authorization",
+    path: "/auth",
     name: "authorization",
     component: AuthorizationPage,
   },
