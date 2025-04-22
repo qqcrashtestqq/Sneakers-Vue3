@@ -14,6 +14,7 @@ const listItems: ListItems[] = [
   {
     name: 0,
     icon: IconBasket,
+    link: "/basket",
   },
   {
     name: "Закладки",
