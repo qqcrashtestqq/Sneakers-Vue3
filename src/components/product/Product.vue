@@ -2,7 +2,7 @@
 import Slider from "../Slider.vue";
 import ProductItem from "./ProductItem.vue";
 import { onMounted } from "vue";
-import { useProductStore } from "../../stores/Products";
+import { useProductStore } from "../../stores/products";
 
 const productStore = useProductStore();
 
