@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import Input from "../../components/Input.vue";
+import Input from "../app/Input.vue";
 
 const statusBab = ref<string>("auth");
 
@@ -31,6 +31,10 @@ const loginUser = ref([
 function openTab(status: string) {
   statusBab.value = status;
 }
+
+function onLoginUser() {
+  console.log("Vlad gay");
+}
 </script>
 
 <template>
@@ -49,15 +53,17 @@ function openTab(status: string) {
             {{ item.name }}
           </button>
         </div>
-        <!-- register  -->
-        <form v-if="statusBab === 'auth'" class="authorization__form">
-          <Input v-for="item in registerUser" :placeholder="item.text" />
-          <button class="authorization__button">Зарегистрироваться</button>
-        </form>
-        <!-- login -->
-        <form v-if="statusBab === 'login'" class="authorization__form">
-          <Input v-for="item in loginUser" :placeholder="item.text" />
-          <button class="authorization__button">Войти</button>
+        <form class="authorization__form" @submit.prevent="onLoginUser">
+          <!-- register  -->
+          <template v-if="statusBab === 'auth'">
+            <Input v-for="item in registerUser" :placeholder="item.text" />
+            <button class="authorization__button">Зарегистрироваться</button>
+          </template>
+          <!-- login -->
+          <template v-else>
+            <Input v-for="item in loginUser" :placeholder="item.text" />
+            <button class="authorization__button">Войти</button>
+          </template>
         </form>
       </div>
     </div>

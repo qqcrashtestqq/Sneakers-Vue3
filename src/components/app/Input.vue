@@ -1,11 +1,9 @@
 <script lang="ts" setup>
-defineProps({
-  placeholder: String,
-  label: String,
-  icon: String,
-  isVisabiletyLabel: Boolean,
-  isVisabiletyIcon: Boolean,
-});
+defineProps<{
+  placeholder: string;
+  label?: string;
+  icon?: string;
+}>();
 </script>
 
 <template>

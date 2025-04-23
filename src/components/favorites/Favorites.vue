@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import ProductItem from "../product/ProdictItem.vue";
+import ProductItem from "../product/ProductItem.vue";
 </script>
 
 <template>
