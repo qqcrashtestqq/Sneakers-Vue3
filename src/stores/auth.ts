@@ -10,10 +10,18 @@ export const useRegisterStore = defineStore("register", {
   actions: {
     async fetchRegister() {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}auth/sign-up`
+        `${import.meta.env.VITE_API_URL}/auth/sign-up`
       );
     },
   },
 });
 
 // login user
+export const useLoginStore = defineStore("login", {
+  state: () => ({
+    login: [] as Login[],
+  }),
+  actions: {
+    async fetchLogin() {},
+  },
+});
