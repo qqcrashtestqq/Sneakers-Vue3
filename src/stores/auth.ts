@@ -8,10 +8,22 @@ export const useRegisterStore = defineStore("register", {
     register: [] as Register[],
   }),
   actions: {
-    async fetchRegister() {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/auth/sign-up`
-      );
+    async fetchRegister(payload: Register) {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/auth/sign-up`,
+          {
+            method: "POST",
+            body: JSON.stringify(payload),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log("response", response);
+      } catch (error) {
+        console.error(error);
+      }
     },
   },
 });

@@ -1,10 +1,12 @@
 <script lang="ts" setup>
 import { ref } from "vue";
+import { useRegisterStore } from "../../stores/auth";
 import Input from "../app/Input.vue";
 
 const statusBab = ref<string>("auth");
+const registerStore = useRegisterStore();
 
-const tabs = ref([
+const tabs = ref<{ key: string; name: string }[]>([
   {
     key: "auth",
     name: "Регистрация",
@@ -17,24 +19,36 @@ const tabs = ref([
 
 // register user data
 const registerUser = ref([
-  { text: "Имя", error: "не корректные данные" },
-  { text: "Почта", error: "не корректные данные" },
-  { text: "Пароль", error: "пароль должен содержать не менее 8 символов" },
+  { text: "Имя", value: "" },
+  { text: "Почта", value: "" },
+  { text: "Пароль", value: "", type: "password" },
 ]);
 
 // login user data
 const loginUser = ref([
-  { text: "Почта", error: "не корректные данные" },
-  { text: "Пароль", error: "пароль должен содержать не менее 8 символов" },
+  { text: "Почта", value: "" },
+  { text: "Пароль", value: "" },
 ]);
 
 function openTab(status: string) {
   statusBab.value = status;
 }
 
-function onLoginUser() {
-  console.log("Vlad gay");
+async function onRegisterUser() {
+  const data = {
+    name: registerUser.value[0].value,
+    email: registerUser.value[1].value,
+    password: registerUser.value[2].value,
+  };
+
+  await registerStore.fetchRegister(data);
+
+  registerUser.value.forEach((value) => {
+    value.value = "";
+  });
 }
+
+function onLoginUser() {}
 </script>
 
 <template>
@@ -56,12 +70,24 @@ function onLoginUser() {
         <form class="authorization__form" @submit.prevent="onLoginUser">
           <!-- register  -->
           <template v-if="statusBab === 'auth'">
-            <Input v-for="item in registerUser" :placeholder="item.text" />
-            <button class="authorization__button">Зарегистрироваться</button>
+            <Input
+              v-for="item in registerUser"
+              :placeholder="item.text"
+              :type="item.type"
+              v-model="item.value"
+            />
+            <button class="authorization__button" @click="onRegisterUser">
+              Зарегистрироваться
+            </button>
           </template>
           <!-- login -->
           <template v-else>
-            <Input v-for="item in loginUser" :placeholder="item.text" />
+            <Input
+              v-for="item in loginUser"
+              v-mode="item.value"
+              :placeholder="item.text"
+              :iv-visability-label="false"
+            />
             <button class="authorization__button">Войти</button>
           </template>
         </form>
