@@ -1,10 +1,17 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import { useRegisterStore } from "../../stores/auth";
+import useAuthStore from "@/stores/auth";
 import Input from "../app/Input.vue";
+import { useRouter } from "vue-router";
 
-const statusBab = ref<string>("auth");
-const registerStore = useRegisterStore();
+// utills
+const router = useRouter();
+
+const { registerStore, fetchLogin } = useAuthStore();
+const statusTab = ref<string>("auth");
+const userName = ref<string>("");
+const userEmail = ref<string>("test@gmail.com");
+const userPassword = ref<string>("213");
 
 const tabs = ref<{ key: string; name: string }[]>([
   {
@@ -17,38 +24,44 @@ const tabs = ref<{ key: string; name: string }[]>([
   },
 ]);
 
-// register user data
-const registerUser = ref([
-  { text: "Имя", value: "" },
-  { text: "Почта", value: "" },
-  { text: "Пароль", value: "", type: "password" },
-]);
+// error register text
+const authErrors = ref<string[]>([]);
 
 // login user data
-const loginUser = ref([
-  { text: "Почта", value: "" },
-  { text: "Пароль", value: "" },
-]);
 
 function openTab(status: string) {
-  statusBab.value = status;
+  statusTab.value = status;
 }
 
+// register user
 async function onRegisterUser() {
-  const data = {
-    name: registerUser.value[0].value,
-    email: registerUser.value[1].value,
-    password: registerUser.value[2].value,
+  authErrors.value = [];
+
+  const userCredentials = {
+    name: userName.value,
+    email: userEmail.value,
+    password: userPassword.value,
   };
 
-  await registerStore.fetchRegister(data);
+  // if (data.password.length < 8 || data.password.length > 12) return;
 
-  registerUser.value.forEach((value) => {
-    value.value = "";
-  });
+  const { data, errors } = await registerStore.fetchRegister(userCredentials);
+
+  console.log("dataResponse", data, errors);
+  if (errors) return (authErrors.value = errors);
 }
 
-function onLoginUser() {}
+// login user
+async function onLoginUser() {
+  const userLoginUser = {
+    email: userEmail.value,
+    password: userPassword.value,
+  };
+  console.log("userLoginUser", userLoginUser);
+
+  await fetchLogin(userLoginUser);
+  router.push("/");
+}
 </script>
 
 <template>
@@ -60,35 +73,47 @@ function onLoginUser() {}
           <button
             v-for="(item, index) in tabs"
             :key="index"
-            :class="{ 'authorization__tab--active': item.key === statusBab }"
+            :class="{ 'authorization__tab--active': item.key === statusTab }"
             class="authorization__tab"
             @click="openTab(item.key)"
           >
             {{ item.name }}
           </button>
         </div>
-        <form class="authorization__form" @submit.prevent="onLoginUser">
+        <form class="authorization__form" @submit.prevent>
           <!-- register  -->
-          <template v-if="statusBab === 'auth'">
+          <template v-if="statusTab === 'auth'">
+            <Input v-model="userName" placeholder="Имя" />
+            <Input v-model="userEmail" placeholder="Почта" />
             <Input
-              v-for="item in registerUser"
-              :placeholder="item.text"
-              :type="item.type"
-              v-model="item.value"
+              v-model="userPassword"
+              type="password"
+              placeholder="Пароль"
             />
+            <ul class="authorization__errors" v-if="authErrors.length">
+              <li
+                v-for="(item, index) in authErrors"
+                :key="index"
+                style="color: red"
+              >
+                {{ item }}
+              </li>
+            </ul>
             <button class="authorization__button" @click="onRegisterUser">
               Зарегистрироваться
             </button>
           </template>
           <!-- login -->
           <template v-else>
+            <Input v-model="userEmail" placeholder="Почта" />
             <Input
-              v-for="item in loginUser"
-              v-mode="item.value"
-              :placeholder="item.text"
-              :iv-visability-label="false"
+              v-model="userPassword"
+              type="password"
+              placeholder="Пароль"
             />
-            <button class="authorization__button">Войти</button>
+            <button class="authorization__button" @click="onLoginUser">
+              Войти
+            </button>
           </template>
         </form>
       </div>

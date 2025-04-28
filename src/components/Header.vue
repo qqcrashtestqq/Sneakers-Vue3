@@ -1,32 +1,18 @@
 <script lang="ts" setup>
-import type { Component } from "vue";
+import { computed, toRefs, type Component } from "vue";
 import IconBasket from "./icons/IconBasket.vue";
 import IconLike from "./icons/IconLike.vue";
 import IconProfile from "./icons/IconProfile.vue";
+import useAuthStore from "@/stores/auth";
 
-interface ListItems {
-  name: string | number;
-  icon: Component;
-  link?: string;
-}
+const { accessToken } = toRefs(useAuthStore());
 
-const listItems: ListItems[] = [
-  {
-    name: 0,
-    icon: IconBasket,
-    link: "/basket",
-  },
-  {
-    name: "Закладки",
-    icon: IconLike,
-    link: "/like",
-  },
-  {
-    name: "Вход",
-    icon: IconProfile,
-    link: "/auth",
-  },
-];
+const headerProfileUser = computed(() => {
+  return {
+    name: accessToken.value ? "Профиль" : "Вход",
+    link: accessToken.value ? "/profile" : "/auth",
+  };
+});
 </script>
 
 <template>
@@ -43,7 +29,7 @@ const listItems: ListItems[] = [
             <span class="header__burger-span"></span>
             <span class="header__burger-span"></span>
           </button>
-          <ul class="header__list">
+          <!-- <ul class="header__list">
             <li
               v-for="(item, index) in listItems"
               :key="index"
@@ -52,6 +38,25 @@ const listItems: ListItems[] = [
               <RouterLink :to="item.link" class="header__link">
                 <component :is="item.icon" />
                 {{ item.name }}
+              </RouterLink>
+            </li>
+          </ul> -->
+          <ul class="header__list">
+            <li class="header__item">
+              <RouterLink to="/basket" class="header__link">
+                <component :is="IconBasket" />
+                0$</RouterLink
+              >
+            </li>
+            <li class="header__item">
+              <RouterLink to="/like" class="header__link">
+                <component :is="IconLike" />Закладки</RouterLink
+              >
+            </li>
+            <li class="header__item">
+              <RouterLink :to="headerProfileUser.link" class="header__link">
+                <component :is="IconProfile" />
+                {{ headerProfileUser.name }}
               </RouterLink>
             </li>
           </ul>

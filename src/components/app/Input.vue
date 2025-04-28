@@ -24,6 +24,12 @@ const model = defineModel<string>();
         :type="type"
         class="input__input"
         :placeholder="placeholder"
+        tep="text"
+        v-on:scroll="
+          () => {
+            console.log('scroll');
+          }
+        "
       />
     </div>
     <span v-if="label" class="input__label"> {{ label }}</span>
