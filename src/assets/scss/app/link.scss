@@ -13,9 +13,14 @@
   border-radius: var(--radius);
   background-color: var(--green);
   color: var(--white);
+  transition: var(--ease);
 
   svg {
     color: var(--white);
+  }
+
+  &:hover {
+    transform: scale(1.05);
   }
 }
 

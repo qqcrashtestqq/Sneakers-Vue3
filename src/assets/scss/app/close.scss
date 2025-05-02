@@ -1,0 +1,15 @@
+@use "@/assets/scss/general/flex" as *;
+
+.close {
+  @include flex-all-center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: var(--border);
+
+  &__icon {
+    width: 11px;
+    height: 11px;
+  }
+}

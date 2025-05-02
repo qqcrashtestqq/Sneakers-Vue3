@@ -10,7 +10,7 @@ import AppLink from "./app/Link.vue";
 interface SliderLists {
   image: string;
   title: string;
-  decor: string;
+  decor?: string;
   button: string;
 }
 
@@ -77,7 +77,7 @@ const breakpoints = {
           class="slider__slide"
         >
           <div class="slider__bg">
-            <img :src="item.image" alt=" phote for background" />
+            <img :src="item.image" alt="photo for background" />
           </div>
           <div class="slider__content">
             <div class="slider__decor">
@@ -96,7 +96,6 @@ const breakpoints = {
           </div>
         </swiper-slide>
 
-        <!-- 👇 Навигационные стрелки -->
         <div class="swiper-button-prev">
           <Icon name="IconSliderArrowLeft" size="35" />
         </div>
