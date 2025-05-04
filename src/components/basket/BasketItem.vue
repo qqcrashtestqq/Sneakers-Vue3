@@ -2,27 +2,25 @@
 import { defineProps } from "vue";
 import IconButtonDelete from "@/components/icons/IconButtonDelete.vue";
 import Close from "@/components/app/Close.vue";
-defineProps<{
-  id: number;
-  image: string;
-  name: string;
-  price: number;
-  foldable: boolean;
+import type { Product } from "../../types/products";
+
+const props = defineProps<{
+  product: Product;
 }>();
 </script>
 
 <template>
   <li class="basket__item">
     <div class="basket__image">
-      <img :src="image" alt="product image" />
+      <!-- <img :src="image" alt="product image" /> -->
     </div>
     <div class="basket__info">
       <div class="basket__name">
-        {{ name }}
+        {{ props.product.name }}
       </div>
-      <div class="basket__price">{{ price }} $</div>
+      <div class="basket__price">{{ props.product.price }} $</div>
     </div>
-    <Close class="basket__delete" />
+    <Close class="basket__delete" @click="" />
   </li>
 </template>
 

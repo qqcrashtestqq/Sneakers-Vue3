@@ -9,6 +9,7 @@ import useAuthStore from "@/stores/auth";
 import Basket from "./basket/Basket.vue";
 
 const burgerStatus = ref<boolean>(false);
+const basketSum = ref<number>(0);
 const isOpenBasketStore = useIsOpenBasketStore();
 
 const headerProfileUser = computed(() => {
@@ -41,12 +42,8 @@ function openBasket() {
               <li class="header__item">
                 <button class="header__link" @click="openBasket">
                   <component :is="IconBasket" />
-                  0$
+                  {{ basketSum }}$
                 </button>
-                <!-- <RouterLink to="/basket" class="header__link" >
-                  <component :is="IconBasket" />
-                  0$</RouterLink
-                > -->
               </li>
               <li class="header__item">
                 <RouterLink to="/like" class="header__link">

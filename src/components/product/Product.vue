@@ -1,14 +1,16 @@
 <script lang="ts" setup>
 import Slider from "../Slider.vue";
 import ProductItem from "./ProductItem.vue";
+import Input from "@/components/app/Input.vue";
 import { onMounted } from "vue";
 import { useProductStore } from "../../stores/products";
+// import { useAddProductStore } from "@/stores/addProductStore.ts";
 
 const productStore = useProductStore();
+// const basketStore = useAddProductStore();
 
 onMounted(() => {
   productStore.fetchProducts();
-  console.log("productStore", productStore.product);
 });
 </script>
 
@@ -19,15 +21,13 @@ onMounted(() => {
       <div class="product__content">
         <div class="product__head">
           <h1 class="product__title">Все кроссовки</h1>
-          <!-- TODO input -->
+          <Input placeholder="Поиск..." />
         </div>
         <ul class="product__list">
           <ProductItem
             v-for="item in productStore.product"
             :key="item.id"
-            :name="item.name"
-            :price="item.price"
-            :image="item.image"
+            :product="item"
           />
         </ul>
       </div>

@@ -9,12 +9,12 @@ const products = [
     price: 123,
   },
   {
-    id: 1,
+    id: 2,
     name: "Кроссовки",
     price: 123,
   },
   {
-    id: 1,
+    id: 3,
     name: "Кроссовки",
     price: 123,
   },
@@ -31,12 +31,7 @@ const products = [
         <div class="profile__title">Мои покупки</div>
       </div>
       <ul class="profile__list">
-        <ProductItem
-          v-for="item in products"
-          :key="item.id"
-          :name="item.name"
-          :price="item.price"
-        />
+        <ProductItem v-for="item in products" :key="item.id" :product="item" />
       </ul>
     </div>
   </section>
