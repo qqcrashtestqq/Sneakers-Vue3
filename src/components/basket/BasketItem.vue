@@ -3,11 +3,18 @@ import { defineProps } from "vue";
 import IconButtonDelete from "@/components/icons/IconButtonDelete.vue";
 import Close from "@/components/app/Close.vue";
 import type { Product } from "../../types/products";
+import { useProductBasketStore } from "@/stores/productBasketStore.ts";
+
+const storeBasket = useProductBasketStore();
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const props = defineProps<{
   product: Product;
 }>();
+
+function deleteProduct() {
+  storeBasket.deleteProductFromBasket(props.product);
+}
 </script>
 
 <template>
@@ -21,7 +28,7 @@ const props = defineProps<{
       </div>
       <div class="basket__price">{{ props.product.price }} $</div>
     </div>
-    <Close class="basket__delete" @click="" />
+    <Close class="basket__delete" @click="deleteProduct" />
   </li>
 </template>
 

@@ -3,15 +3,24 @@ import type { Product } from "../types/products";
 
 export const useProductBasketStore = defineStore("productBasket", {
   state: () => ({
-    defaultBasketPrice: 0 as number,
     productsOnBasket: [] as Product[],
   }),
 
   actions: {
+    // add product for basket
     addProductToBasket(product: Product) {
       this.productsOnBasket.push(product);
-      // this.defaultBasketPrice += product.price;
-      console.log("Product added to basket:", this.productsOnBasket);
+      localStorage.setItem(
+        "productBasket",
+        JSON.stringify(this.productsOnBasket)
+      );
+    },
+    // delete product from basket
+    deleteProductFromBasket(product: Product) {
+      if (!this.productsOnBasket) return;
+      this.productsOnBasket = this.productsOnBasket.filter(
+        (item) => item.id !== product.id
+      );
       localStorage.setItem(
         "productBasket",
         JSON.stringify(this.productsOnBasket)

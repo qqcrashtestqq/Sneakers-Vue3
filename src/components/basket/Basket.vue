@@ -39,7 +39,6 @@ function closeBasket() {
               />
             </ul>
           </div>
-
           <div class="basket__content">
             <div class="basket__total">
               <div class="basket__result">

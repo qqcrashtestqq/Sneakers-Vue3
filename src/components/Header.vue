@@ -44,7 +44,7 @@ function openBasket() {
               <li class="header__item">
                 <button class="header__link" @click="openBasket">
                   <component :is="IconBasket" />
-                  {{ productBasketStore.totalBasketPrice }}$
+                  {{ productBasketStore.totalBasketPrice }} $
                 </button>
               </li>
               <li class="header__item">
