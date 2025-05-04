@@ -10,14 +10,12 @@ export const useProductBasketStore = defineStore("productBasket", {
   actions: {
     addProductToBasket(product: Product) {
       this.productsOnBasket.push(product);
+      // this.defaultBasketPrice += product.price;
       console.log("Product added to basket:", this.productsOnBasket);
       localStorage.setItem(
         "productBasket",
         JSON.stringify(this.productsOnBasket)
       );
-    },
-    deleteProductFromBasket(product: Product) {
-      if (product.id) return;
     },
   },
 

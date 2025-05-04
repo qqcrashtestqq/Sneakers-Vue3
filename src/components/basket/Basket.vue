@@ -9,8 +9,9 @@ import IconArrowBack from "@/components/icons/IconArrowBack.vue";
 import BasketEmpty from "./BasketEmpty.vue";
 
 const storeBasket = useIsOpenBasketStore();
-const tax = ref<number>(0.5);
 const productBasketStore = useProductBasketStore();
+const resultPrice = ref(productBasketStore.totalBasketPrice);
+const tax = ref((productBasketStore.totalBasketPrice * 0.05).toFixed(2));
 
 function closeBasket() {
   storeBasket.closeBasket();
@@ -44,12 +45,12 @@ function closeBasket() {
               <div class="basket__result">
                 <p class="basket__result-title">Итого:</p>
                 <span class="basket__result-decor"></span>
-                <p class="basket__result-value">21 498 руб.</p>
+                <p class="basket__result-value">{{ resultPrice }} $</p>
               </div>
               <div class="basket__result">
                 <p class="basket__result-title">Налог 5%:</p>
                 <span class="basket__result-decor"></span>
-                <p class="basket__result-value">{{ tax }}</p>
+                <p class="basket__result-value">{{ tax }} $</p>
               </div>
             </div>
             <Link text="Оформить заказ" :icon="IconArrowBack" />
