@@ -3,6 +3,7 @@ import { defineProps } from "vue";
 import IconButtonDelete from "@/components/icons/IconButtonDelete.vue";
 import Close from "@/components/app/Close.vue";
 import type { Product } from "../../types/products";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const props = defineProps<{
   product: Product;
@@ -12,7 +13,7 @@ const props = defineProps<{
 <template>
   <li class="basket__item">
     <div class="basket__image">
-      <!-- <img :src="image" alt="product image" /> -->
+      <img :src="`${apiUrl}${props.product.image}`" alt="product image" />
     </div>
     <div class="basket__info">
       <div class="basket__name">

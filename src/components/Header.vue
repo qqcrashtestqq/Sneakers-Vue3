@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { computed, ref, toRefs } from "vue";
 import { useIsOpenBasketStore } from "@/stores/isOpenBasket.ts";
+import { useProductBasketStore } from "@/stores/productBasketStore.ts";
 const { accessToken } = toRefs(useAuthStore());
 import IconBasket from "./icons/IconBasket.vue";
 import IconLike from "./icons/IconLike.vue";
@@ -11,6 +12,7 @@ import Basket from "./basket/Basket.vue";
 const burgerStatus = ref<boolean>(false);
 const basketSum = ref<number>(0);
 const isOpenBasketStore = useIsOpenBasketStore();
+const productBasketStore = useProductBasketStore();
 
 const headerProfileUser = computed(() => {
   return {
@@ -42,7 +44,7 @@ function openBasket() {
               <li class="header__item">
                 <button class="header__link" @click="openBasket">
                   <component :is="IconBasket" />
-                  {{ basketSum }}$
+                  {{ productBasketStore.totalBasketPrice }}$
                 </button>
               </li>
               <li class="header__item">
