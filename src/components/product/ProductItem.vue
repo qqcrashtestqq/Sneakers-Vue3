@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import AppButton from "../app/Button.vue";
 import AppLike from "../app/Like.vue";
-import { Product } from "@/types/product";
+import { Product } from "@/types/products";
 import { useProductBasketStore } from "@/stores/productBasketStore.ts";
 
 const apiUrl = import.meta.env.VITE_API_URL;
