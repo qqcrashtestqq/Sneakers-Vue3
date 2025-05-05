@@ -15,6 +15,7 @@ export const useProductBasketStore = defineStore("productBasket", {
         JSON.stringify(this.productsOnBasket)
       );
     },
+
     // delete product from basket
     deleteProductFromBasket(product: Product) {
       if (!this.productsOnBasket) return;
