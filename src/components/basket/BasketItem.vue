@@ -1,18 +1,19 @@
 <script lang="ts" setup>
-import { defineProps } from "vue";
-import IconButtonDelete from "@/components/icons/IconButtonDelete.vue";
+import { defineProps, ref } from "vue";
 import Close from "@/components/app/Close.vue";
 import type { Product } from "../../types/products";
 import { useProductBasketStore } from "@/stores/productBasketStore.ts";
 
 const storeBasket = useProductBasketStore();
 const apiUrl = import.meta.env.VITE_API_URL;
+const statusButton = ref<boolean>(false);
 
 const props = defineProps<{
   product: Product;
 }>();
 
 function deleteProduct() {
+  statusButton.value = !statusButton.value;
   storeBasket.deleteProductFromBasket(props.product);
 }
 </script>
