@@ -12,6 +12,8 @@ const props = defineProps<{
   product: Product;
 }>();
 
+// TODO добавить компьютед для оперделения товара лежащего в корзине
+
 function addProductInBasket() {
   productBasketStore.addProductToBasket(props.product);
 }
@@ -30,14 +32,14 @@ function addProductInBasket() {
       class="product__name"
       >{{ props.product.name }}</a
     >
-    <Counter class="product__counter" />
+    <!-- <Counter class="product__counter" /> -->
     <div class="product__info">
       <div class="product__price">
         <span class="product__price-text">Цена</span>
         <p class="product__price-value">{{ props.product.price }}$</p>
       </div>
 
-      <AppButton @click="addProductInBasket" />
+      <AppButton :statusBoolean="false" @click="addProductInBasket" />
     </div>
   </li>
 </template>

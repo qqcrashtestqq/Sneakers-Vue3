@@ -3,7 +3,9 @@ import type { Product } from "../types/products";
 
 export const useProductBasketStore = defineStore("productBasket", {
   state: () => ({
-    productsOnBasket: [] as Product[],
+    productsOnBasket: JSON.parse(
+      localStorage.getItem("productBasket") || "[]"
+    ) as Product[],
   }),
 
   actions: {
@@ -14,6 +16,7 @@ export const useProductBasketStore = defineStore("productBasket", {
         "productBasket",
         JSON.stringify(this.productsOnBasket)
       );
+      console.log("productsOnBasket", this.productsOnBasket);
     },
 
     // delete product from basket
