@@ -4,6 +4,7 @@ import AppLike from "../app/Like.vue";
 import Counter from "@/components/app/Counter.vue";
 import { Product } from "@/types/products";
 import { useProductBasketStore } from "@/stores/productBasketStore.ts";
+import { computed } from "vue";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 const productBasketStore = useProductBasketStore();
@@ -14,7 +15,16 @@ const props = defineProps<{
 
 // TODO добавить компьютед для оперделения товара лежащего в корзине
 
+const computedBasket = computed(() => {
+  return productBasketStore.productsOnBasket.find((item: object) => {
+    console.log("item", item);
+
+    return item.id === props.product.id;
+  });
+});
+
 function addProductInBasket() {
+  if (computedBasket.value) return;
   productBasketStore.addProductToBasket(props.product);
 }
 </script>
@@ -32,14 +42,14 @@ function addProductInBasket() {
       class="product__name"
       >{{ props.product.name }}</a
     >
-    <!-- <Counter class="product__counter" /> -->
+    <Counter class="product__counter" />
     <div class="product__info">
       <div class="product__price">
         <span class="product__price-text">Цена</span>
         <p class="product__price-value">{{ props.product.price }}$</p>
       </div>
 
-      <AppButton :statusBoolean="false" @click="addProductInBasket" />
+      <AppButton :statusBoolean="computedBasket" @click="addProductInBasket" />
     </div>
   </li>
 </template>

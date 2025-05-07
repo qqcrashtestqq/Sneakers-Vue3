@@ -25,6 +25,8 @@ const headerProfileUser = computed(() => {
 function openBasket() {
   isOpenBasketStore.openBasket();
 }
+
+function burgerMenu() {}
 </script>
 
 <template>
@@ -39,6 +41,7 @@ function openBasket() {
 
       <div class="header__block">
         <div class="header__box">
+          <!-- active class header__tab--active -->
           <nav class="header__nav">
             <ul class="header__list">
               <li class="header__item">
@@ -62,7 +65,7 @@ function openBasket() {
           </nav>
         </div>
 
-        <!-- <button
+        <button
           class="header__burger"
           :class="{ 'header__burger--active': burgerStatus }"
           @click="burgerMenu"
@@ -70,7 +73,7 @@ function openBasket() {
           <span class="header__burger-span"></span>
           <span class="header__burger-span"></span>
           <span class="header__burger-span"></span>
-        </button> -->
+        </button>
       </div>
     </div>
   </header>
