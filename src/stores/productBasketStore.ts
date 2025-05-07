@@ -16,7 +16,6 @@ export const useProductBasketStore = defineStore("productBasket", {
         "productBasket",
         JSON.stringify(this.productsOnBasket)
       );
-      console.log("productsOnBasket", this.productsOnBasket);
     },
 
     // delete product from basket

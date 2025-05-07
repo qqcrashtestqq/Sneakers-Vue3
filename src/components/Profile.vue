@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import ProductItem from "../components/product/ProductItem.vue";
-import IconArrowBack from "../components/icons/IconArrowBack.vue";
+import LinkBack from "./app/LinkBack.vue";
 
 const products = [
   {
@@ -24,12 +24,7 @@ const products = [
 <template>
   <section class="profile">
     <div class="container">
-      <div class="profile__head">
-        <RouterLink to="/" class="profile__button">
-          <component is="IconArrowBack" />
-        </RouterLink>
-        <div class="profile__title">Мои покупки</div>
-      </div>
+      <LinkBack link="/" text="Мои покупки" />
       <ul class="profile__list">
         <ProductItem v-for="item in products" :key="item.id" :product="item" />
       </ul>

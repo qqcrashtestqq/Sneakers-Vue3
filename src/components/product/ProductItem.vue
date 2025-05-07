@@ -5,9 +5,11 @@ import Counter from "@/components/app/Counter.vue";
 import { Product } from "@/types/products";
 import { useProductBasketStore } from "@/stores/productBasketStore.ts";
 import { computed } from "vue";
+import { useFavoriteStore } from "@/stores/favoriteStore.ts";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 const productBasketStore = useProductBasketStore();
+const favoriteStore = useFavoriteStore();
 
 const props = defineProps<{
   product: Product;
@@ -27,11 +29,16 @@ function addProductInBasket() {
   if (computedBasket.value) return;
   productBasketStore.addProductToBasket(props.product);
 }
+
+function addFavorite() {
+  favoriteStore.getProducts(props.product);
+  console.log("favoriteStore", favoriteStore.products);
+}
 </script>
 
 <template>
   <li class="product__item">
-    <AppLike class="product__like" />
+    <AppLike class="product__like" @click="addFavorite" />
 
     <div class="product__image">
       <img :src="`${apiUrl}${props.product.image}`" :alt="props.product.name" />
@@ -42,7 +49,7 @@ function addProductInBasket() {
       class="product__name"
       >{{ props.product.name }}</a
     >
-    <Counter class="product__counter" />
+    <!-- <Counter class="product__counter" /> -->
     <div class="product__info">
       <div class="product__price">
         <span class="product__price-text">Цена</span>

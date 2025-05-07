@@ -3,12 +3,6 @@
 .profile {
   padding: 44px 0 90px;
 
-  &__head {
-    @include flex;
-    gap: 21px;
-    margin-bottom: 40px;
-  }
-
   &__button {
     @include flex-all-center;
     width: 35px;

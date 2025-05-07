@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <a href="#" class="link">
+  <a :href="link" class="link">
     <Icon v-if="isVisabilety" :name="icon" size="13" />
     {{ text }}
   </a>
