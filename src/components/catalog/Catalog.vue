@@ -10,24 +10,24 @@ const catalogStore = useCatalogStore();
 // const basketStore = useAddcatalogStore();
 
 onMounted(() => {
-  catalogStore.fetchProducts();
+  catalogStore.fetchcatalogs();
 });
 </script>
 
 <template>
-  <section class="product">
-    <div class="container product__container">
+  <section class="catalog">
+    <div class="container catalog__container">
       <Slider />
-      <div class="product__content">
-        <div class="product__head">
-          <h1 class="product__title">Все кроссовки</h1>
+      <div class="catalog__content">
+        <div class="catalog__head">
+          <h1 class="catalog__title">Все кроссовки</h1>
           <Input placeholder="Поиск..." />
         </div>
-        <ul class="product__list">
+        <ul class="catalog__list">
           <CatalogItem
-            v-for="item in catalogStore.product"
+            v-for="item in catalogStore.catalog"
             :key="item.id"
-            :product="item"
+            :catalog="item"
           />
         </ul>
       </div>
@@ -36,5 +36,5 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/scss/product/product.scss";
+@use "@/assets/scss/catalog/catalog.scss";
 </style>

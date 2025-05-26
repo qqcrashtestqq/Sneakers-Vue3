@@ -4,6 +4,7 @@ import AuthorizationPage from "../pages/AuthorizationPage.vue";
 import ProfilePage from "../pages/ProfilePage.vue";
 import LikePage from "../pages/FavoritePage.vue";
 import BasketPage from "../pages/BasketPage.vue";
+import ProductPage from "../pages/ProductPage.vue";
 
 export default [
   { path: "/", name: "home", component: HomePage },
@@ -16,4 +17,5 @@ export default [
   },
   { path: "/profile", name: "profile", component: ProfilePage },
   { path: "/basket", name: "basket", component: BasketPage },
+  { path: "/product", name: "product", component: ProductPage },
 ];
