@@ -41,7 +41,10 @@ function addFavorite() {
     <AppLike class="product__like" @click="addFavorite" />
 
     <div class="product__image">
-      <img :src="`${apiUrl}${props.product.image}`" :alt="props.product.name" />
+      <img
+        :src="`${apiUrl}/${props.product.image}`"
+        :alt="props.product.name"
+      />
     </div>
     <a
       :href="`${apiUrl}/products/${props.product.id}`"

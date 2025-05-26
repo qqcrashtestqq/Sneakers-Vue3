@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import ProductItem from "../product/ProductItem.vue";
+import CatalogItem from "../catalog/CatalogItem.vue";
 import FavritesEmpty from "./FavoritesEmpty.vue";
 import LinkBack from "@/components/app/LinkBack.vue";
 import { useFavoriteStore } from "@/stores/favoriteStore.ts";
@@ -14,7 +14,7 @@ const favoriteStore = useFavoriteStore();
       <div v-if="favoriteStore.products.length" class="favorites__block">
         <LinkBack link="/" text="Мои закладки" />
         <ul class="favorites__list">
-          <ProductItem
+          <CatalogItem
             v-for="item in favoriteStore.products"
             :key="item.id"
             :product="item"

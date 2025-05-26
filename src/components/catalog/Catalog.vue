@@ -1,16 +1,16 @@
 <script lang="ts" setup>
 import Slider from "../Slider.vue";
-import ProductItem from "./ProductItem.vue";
+import CatalogItem from "./CatalogItem.vue";
 import Input from "@/components/app/Input.vue";
 import { onMounted } from "vue";
-import { useProductStore } from "../../stores/products";
-// import { useAddProductStore } from "@/stores/addProductStore.ts";
+import { useCatalogStore } from "../../stores/catalog";
+// import { useAddcatalogStore } from "@/stores/addcatalogStore.ts";
 
-const productStore = useProductStore();
-// const basketStore = useAddProductStore();
+const catalogStore = useCatalogStore();
+// const basketStore = useAddcatalogStore();
 
 onMounted(() => {
-  productStore.fetchProducts();
+  catalogStore.fetchProducts();
 });
 </script>
 
@@ -24,8 +24,8 @@ onMounted(() => {
           <Input placeholder="Поиск..." />
         </div>
         <ul class="product__list">
-          <ProductItem
-            v-for="item in productStore.product"
+          <CatalogItem
+            v-for="item in catalogStore.product"
             :key="item.id"
             :product="item"
           />

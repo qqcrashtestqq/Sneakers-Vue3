@@ -3,7 +3,7 @@ import type { Product } from "../types/products";
 
 // asios шина обработки запросов
 
-export const useProductStore = defineStore("allProducts", {
+export const useCatalogStore = defineStore("catalog", {
   state: () => ({
     product: [] as Product[],
   }),

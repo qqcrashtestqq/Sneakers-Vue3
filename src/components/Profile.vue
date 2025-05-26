@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import ProductItem from "../components/product/ProductItem.vue";
+import CatalogItem from "../components/catalog/CatalogItem.vue";
 import LinkBack from "./app/LinkBack.vue";
 
 const products = [
@@ -26,7 +26,7 @@ const products = [
     <div class="container">
       <LinkBack link="/" text="Мои покупки" />
       <ul class="profile__list">
-        <ProductItem v-for="item in products" :key="item.id" :product="item" />
+        <CatalogItem v-for="item in products" :key="item.id" :product="item" />
       </ul>
     </div>
   </section>
